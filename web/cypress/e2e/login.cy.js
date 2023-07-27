@@ -1,6 +1,6 @@
 import users from '../fixtures/users.json'
 
-import LoginPage from '../support/pages/LoginPage'
+import login from '../support/pages/LoginPage'
 
 describe('login', () => {
 
@@ -8,10 +8,8 @@ describe('login', () => {
     it.only('deve logar com o perfil do admin', ()=> {
 
         const user = users.admin
-
-        const login = LoginPage()
         
-        login.doLogin(user)
+        login.submit(user)
 
         // cy.doLogin(user)
         cy.contains('aside .logged-user', 'Olá, ' + user.name)
